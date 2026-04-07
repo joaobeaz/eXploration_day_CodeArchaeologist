@@ -1,36 +1,30 @@
-# SMILE-IoT: Sistema de Monitorização e Inspeção Local de Energia via IoT
+# SMILE-IoT: Local Energy Monitoring and Inspection System via IoT
 
-**Unidade Curricular:** PESTA (Projeto/Estágio) - LEEC ISEP  
-**Autor:** [Teu Nome] ([Teu Número])  
-**Data:** Março 2026  
-**Estatuto:** Auto-proposta (Trabalhador-Estudante / SWE na Bosch)
+## 1. Overview
 
----
+**SMILE-IoT** is an embedded system prototype for non-invasive monitoring of alternating current (AC) electrical energy consumption. The project aims to address the need to audit and profile the consumption of equipment or electrical panels quickly, safely, and cost-effectively, without the need for circuit interruption or complex electrical interventions.
 
-## 1. Visão Geral (Overview)
+The system bridges **Electrical Engineering** (analog signal acquisition and conditioning, power calculation) and **Software Engineering** (microcontroller processing, IoT transmission, and real-time data visualization).
 
-O **SMILE-IoT** é um protótipo de sistema embutido para a monitorização não invasiva do consumo de energia elétrica em corrente alternada (AC). O projeto visa responder à necessidade de auditar e perfilar o consumo de equipamentos ou quadros elétricos de forma rápida, segura e económica, sem necessidade de interrupção do circuito ou de intervenções elétricas complexas.
+## 2. System Architecture
 
-O sistema faz a ponte entre a **Engenharia Eletrotécnica** (aquisição e condicionamento de sinais analógicos, cálculo de potência) e a **Engenharia de Software** (processamento no microcontrolador, transmissão IoT e visualização de dados em tempo real).
+The architecture was designed with a focus on modularity and rapid feasibility, divided into three main layers: perception (Hardware), transport (Network), and application (Software).
 
-## 2. Arquitetura do Sistema
-
-A arquitetura foi desenhada com foco na modularidade e na rápida exequibilidade, dividindo-se em três camadas principais: perceção (Hardware), transporte (Rede) e aplicação (Software).
-
-### Diagrama de Blocos Lógico
+### Logical Block Diagram
 
 ```text
-[ Rede Elétrica AC ] 
+[ AC Electrical Grid ] 
        │
-       ▼ (Campo Magnético)
+       ▼ (Magnetic Field)
 ┌────────────────────┐      ┌──────────────────────┐      ┌────────────────────┐
-│ 1. Sensor SCT-013  ├─────►│ 2. Condicionamento   ├─────►│ 3. Microcontrolador│
-│ (Transformador de  │      │ (Divisor de Tensão + │      │ ESP32 (ADC 12-bit) │
-│  Corrente 30A/1V)  │      │  Filtro DC Offset)   │      │ Processamento RMS  │
+│ 1. SCT-013 Sensor  ├─────►│ 2. Signal            ├─────►│ 3. Microcontroller │
+│ (Current           │      │ Conditioning         │      │ ESP32 (12-bit ADC) │
+│  Transformer       │      │ (Voltage Divider +   │      │ RMS Processing     │
+│  30A/1V)           │      │  DC Offset Filter)   │      │                    │
 └────────────────────┘      └──────────────────────┘      └─────────┬──────────┘
                                                                     │
                                                                     ▼ (Wi-Fi / MQTT)
 ┌────────────────────┐      ┌──────────────────────┐      ┌────────────────────┐
-│ 6. Utilizador Final│◄─────┤ 5. Dashboard Web     │◄─────┤ 4. Servidor IoT    │
-│ (Browser/Mobile)   │      │ (Gráficos Tempo Real)│      │ (Broker/Backend)   │
+│ 6. End User        │◄─────┤ 5. Web Dashboard     │◄─────┤ 4. IoT Server      │
+│ (Browser/Mobile)   │      │ (Real-Time Charts)   │      │ (Broker/Backend)   │
 └────────────────────┘      └──────────────────────┘      └────────────────────┘
