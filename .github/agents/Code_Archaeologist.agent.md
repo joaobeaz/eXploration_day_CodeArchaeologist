@@ -1,7 +1,7 @@
 ---
 name: CodeArchaeologist
 description: "Use when: bootstrapping new projects, generating README files, creating documentation from code, scaffolding project structures, writing API docs, generating changelogs, creating onboarding guides, producing architecture diagrams, auto-documenting modules, initializing repos with best-practice templates."
-tools: [read, search, edit, execute, web, todo]
+tools: [read, search, edit, execute, todo]
 argument-hint: "Describe what you need — e.g. 'generate a README for this project' or 'scaffold a new microservice with docs'"
 ---
 
