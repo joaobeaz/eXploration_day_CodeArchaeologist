@@ -12,7 +12,7 @@ import time
 import pandas as pd
 import streamlit as st
 
-from utils.data import (
+from software.utils.simulated_data import (
     GRID_VOLTAGE,
     generate_daily_data,
     generate_realtime_data,

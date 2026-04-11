@@ -16,7 +16,7 @@ import paho.mqtt.client as mqtt
 from paho.mqtt.client import CallbackAPIVersion
 import streamlit as st
 
-from utils.data import MAX_BUFFER_SIZE
+from software.utils.simulated_data import MAX_BUFFER_SIZE
 
 # ---------------------------------------------------------------------------
 # Module-level MQTT primitives (shared across threads via Python GIL)
