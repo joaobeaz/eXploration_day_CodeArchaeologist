@@ -21,8 +21,10 @@ __pycache__/
 *$py.class
 *.egg-info/
 .Python
-env/
+.env/
+.venv/
 venv/
+env/
 pip-log.txt
 pip-delete-this-directory.txt
 
