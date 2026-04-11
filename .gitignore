@@ -2,8 +2,8 @@
 .pio
 .pioenvs
 .piolibdeps
-build/
-dist/
+firmware/.pio
+firmware/build/
 
 # IDEs & Editors
 .vscode/
@@ -11,9 +11,8 @@ dist/
 *.swp
 *.swo
 *~
-.DS_Store
-*.sublime-project
-*.sublime-workspace
+.sublime-project
+.sublime-workspace
 
 # Python
 __pycache__/
@@ -25,14 +24,9 @@ env/
 venv/
 pip-log.txt
 pip-delete-this-directory.txt
-
-# Build & Compilation
-*.o
-*.a
-*.so
-*.elf
-*.bin
-*.hex
+.pytest_cache/
+.coverage
+htmlcov/
 
 # OS
 .DS_Store
@@ -44,9 +38,17 @@ Thumbs.db
 *.tmp
 *.bak
 
-# Dependencies (keep lock file)
-lib/
-!lib/README
+# Build & Compilation
+*.o
+*.a
+*.so
+*.elf
+*.bin
+*.hex
 
-# Generated files
-.pio/
+# Environment variables
+.env
+.env.local
+
+# Streamlit
+.streamlit/
